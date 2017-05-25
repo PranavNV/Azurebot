@@ -20,6 +20,7 @@ var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure
 var bot = new builder.UniversalBot(connector);
 bot.localePath(path.join(__dirname, './locale'));
 
+
 bot.dialog('/', [function(session) {
     session.send('' + 'Hello, Welcome to the Aerospace PDM. I am your virtual assistant.');
     builder.Prompts.choice(session, 'Please select any of the options 1, 2 or 3', "Get Training on NGPDM|Have a question regarding NGPDM (FAQs)|Raise a Support Request");
@@ -164,6 +165,8 @@ bot.dialog('/3_2Dialog', [function(session) {
     session.send('' + 'Thank you for suggestion. The team is notified and you will be informed about the status shortly.');
     session.send('' + 'We have notified the Team about your suggestion. \n\nContact [support distribution email list] for any urgent support.');
 }]);
+
+
 
 if (useEmulator) {
     var restify = require('restify');
